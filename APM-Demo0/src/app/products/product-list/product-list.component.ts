@@ -44,14 +44,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
     );
   }
 
-  
+
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 
   checkChanged(): void {
-    this.store.dispatch( 
+    this.store.dispatch(
       { type: '[Product] Toggle Product Code'}
     )
   }
