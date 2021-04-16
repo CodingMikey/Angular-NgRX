@@ -4,6 +4,7 @@ import * as ProductActions from './product.actions';
 
 import { Product } from '../product';
 import { state } from "@angular/animations";
+import { Actions } from "@ngrx/effects";
 
 export interface State extends AppState.State {
   products: ProductState;
@@ -69,5 +70,11 @@ export const productReducer = createReducer<ProductState>(
           starRating: 0
         }
       };
+    }),
+    on(ProductActions.loadProductsSuccess, (state,action): ProductState => {
+      return {
+        ...state,
+        products: action.products
+      }
     })
 );
