@@ -1,17 +1,16 @@
-# Angular-ngrx-GettingStarted
-Materials for NgRx course.
+## ⚡️⚡️⚡️ Product Management App | Angular W/ NgRx ⚡️⚡️⚡️
 
-`APM-Demo0`: The starter files for this course. **Use this to code along with the course**.
+## This app is used for product management! 
 
-`APM-Demo1`: Completed files after the *First Look at NgRx* module. It demonstrates a very simple NgRx example.
+<h2 align="center">
+  <img src="https://github.com/CodingMikey/TripKeeper/blob/master/sample.gif" alt="Tripkeeper" width="600px" />
+  <br>
+</h2>
 
-`APM-Demo2`: Completed files after the *Strongly Typing Actions with Action Creators* module. It refactors the simple example to include developer tooling support and strong typing.
+## Features
 
-`APM-Demo3`: Completed files after the *Working with Effects* module. It adds an effect to retrieve data via http. NOTE: Once we move the data retrieval to actions and the store, the create, update, and delete operations no longer work. These features are implemented with the store in the next demo.
-
-`APM-Demo4`: Completed files after the *Performing Update Operations* module. It adds the code needed for create, update, and delete operations via http.
-
-`APM-Demo5`: Completed files after the *Architectural Considerations* module. It implements the container/presentational component pattern and the OnPush change detection strategy.
-
-NOTE:
-- June 30, 2020: This code was modified to Angular version 9 and NgRx version 9. See the CHANGELOG.md file for details.
+⚡️ Modern UI Design w/ Angular\
+⚡️ Easy to navigate\
+⚡️ Uses NgRx for state management\
+⚡️ Fully Responsive & Mobile\
+⚡️ Utilizes Actions, Reducers, Effects, Services, Seletors & Store\
