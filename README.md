@@ -3,8 +3,8 @@
 ## Features
 
 ⚡️ Modern UI Design w/ Angular\
-⚡️ Easy to navigate\
-⚡️ Uses NgRx for state management\
+⚡️ Easy To Navigate\
+⚡️ Uses NgRx for State Management\
 ⚡️ Fully Responsive & Mobile\
 ⚡️ Utilizes Actions, Reducers, Effects, Services, Seletors & Store\
 
