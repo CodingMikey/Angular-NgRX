@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
-
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
-import { getCurrentProduct, getShowProductCode, State } from '../state/product.reducer';
+
+/* NgRx */
+import { Store } from '@ngrx/store';
+import { State, getShowProductCode, getCurrentProduct } from '../state/product.reducer';
 import * as ProductActions from '../state/product.actions';
 
 @Component({
@@ -13,7 +13,7 @@ import * as ProductActions from '../state/product.actions';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnInit {
   pageTitle = 'Products';
   errorMessage: string;
 
@@ -23,11 +23,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   // Used to highlight the selected product in the list
   selectedProduct: Product | null;
-  sub: Subscription;
 
   constructor(private store: Store<State>, private productService: ProductService) { }
 
   ngOnInit(): void {
+    // TODO: Unsubscribe
     this.store.select(getCurrentProduct).subscribe(
       currentProduct => this.selectedProduct = currentProduct
     );
@@ -37,29 +37,21 @@ export class ProductListComponent implements OnInit, OnDestroy {
       error: err => this.errorMessage = err
     });
 
+    // TODO: Unsubscribe
     this.store.select(getShowProductCode).subscribe(
-      getShowProductCode => this.displayCode = getShowProductCode
+      showProductCode => this.displayCode = showProductCode
     );
-  }
-
-
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 
   checkChanged(): void {
     this.store.dispatch(ProductActions.toggleProductCode());
   }
 
-  //When a user clicks add this dispatches the product initializer
   newProduct(): void {
     this.store.dispatch(ProductActions.initializeCurrentProduct());
   }
 
-  //When a user clicks "save" this dispatches an action to save product into list
   productSelected(product: Product): void {
-    this.store.dispatch(ProductActions.setCurrentProduct({ product }))
+    this.store.dispatch(ProductActions.setCurrentProduct({ product }));
   }
-
 }
